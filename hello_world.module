@@ -19,8 +19,9 @@ function hello_world_help($route_name, RouteMatchInterface $route_match)
             $output .= '<p>' . t('This is an example module.') . '</p>';
             $output .= '<p>Hello!</p>';
 
+            // Вызов сервиса вне контроллера
             $helloWorldSalutationService = \Drupal::service('hello_world.salutation');
-            $salutation = $helloWorldSalutationService->getSalutation();
+            $salutation = $helloWorldSalutationService->getSalutation('Call service directly: ');
             if (!empty($salutation)) {
                 $output .= $salutation;
             }

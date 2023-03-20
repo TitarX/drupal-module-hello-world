@@ -14,19 +14,19 @@ class HelloWorldSalutationService
     /**
      * Returns salutation
      */
-    public function getSalutation()
+    public function getSalutation(string $prefix = '')
     {
         $time = new \DateTime();
         if ((int)$time->format('G') >= 00 && (int)$time->format('G') < 12) {
-            return $this->t('Good morning world');
+            return $this->t("{$prefix}Good morning world");
         }
 
         if ((int)$time->format('G') >= 12 && (int)$time->format('G') < 18) {
-            return $this->t('Good afternoon world');
+            return $this->t("{$prefix}Good afternoon world");
         }
 
         if ((int)$time->format('G') >= 18) {
-            return $this->t('Good evening world');
+            return $this->t("{$prefix}Good evening world");
         }
     }
 }
