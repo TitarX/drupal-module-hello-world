@@ -1,0 +1,19 @@
+hello_world.hello:
+  path: '/hello'
+  defaults:
+    _controller: Drupal\hello_world\Controller\HelloWorldController::helloWorld
+    _title: 'Hello World route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.hello_node:
+  path: '/hello/{param}'
+  defaults:
+    _controller: Drupal\hello_world\Controller\HelloWorldController::helloWorldNode
+    _title: 'Hello World Node route'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      param: # '/hello/{param}' - В {param} нужно передавать id ноды, тогда в $param будет нода
+        type: entity:node # Можно обойтись без описания параметра и его типа, path: /hello/{node} - даст тот же результат
