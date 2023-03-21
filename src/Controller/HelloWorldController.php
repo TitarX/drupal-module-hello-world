@@ -31,6 +31,7 @@ class HelloWorldController extends ControllerBase
      */
     public static function create(ContainerInterface $container)
     {
+        // Создание и объекта текущего класса
         return new static($container->get('hello_world.salutation'));
     }
 
